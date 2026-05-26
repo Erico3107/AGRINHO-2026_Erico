@@ -4,162 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGRINHO 2026 | Agro Forte, Futuro Sustentável</title>
-    <meta name="description" content="AGRINHO 2026 - Equilíbrio entre produção agrícola e preservação ambiental.">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <meta name="description" content="AGRINHO 2026 - Equilíbrio entre produção agrícola e preservação ambiental">
     
     <style>
-        :root {
-            --verde-escuro: #0A3D2A;
-            --verde-principal: #1E6B4E;
-            --verde-claro: #4CAF8A;
-            --amarelo-terra: #E8B923;
-            --terra: #8D6E4F;
-            --cinza-claro: #F8F9FA;
-        }
-
-        * {
+        body {
+            font-family: Zapfino, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
+            line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
         }
-
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
-
-        /* Header */
         header {
-            background: rgba(10, 61, 42, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s;
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
         }
-
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 0;
         }
-
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.1rem;
-            font-weight: 700;
-            color: white;
+            font-size: 28px;
+            font-weight: bold;
         }
-
-        .logo span {
-            color: var(--amarelo-terra);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.2rem;
-        }
-
         .nav-links a {
             color: white;
+            margin-left: 25px;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
         }
-
-        .nav-links a:hover {
-            color: var(--verde-claro);
-        }
-
-        /* Hero Section */
         .hero {
-            height: 100vh;
-            min-height: 650px;
-            background: linear-gradient(rgba(10, 61, 42, 0.78), rgba(10, 61, 42, 0.85)),
-                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=2000') center/cover no-repeat;
-            display: flex;
-            align-items: center;
+            background-color: #111;
             color: white;
             text-align: center;
+            padding: 120px 20px;
         }
-
-        .hero-content {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
         .hero h1 {
-            font-size: 3.8rem;
-            line-height: 1.1;
-            margin-bottom: 1.2rem;
+            font-size: 42px;
+            margin-bottom: 15px;
         }
-
         .hero p {
-            font-size: 1.45rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 30px;
         }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            background: var(--amarelo-terra);
-            color: #0A3D2A;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(232, 185, 35, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(232, 185, 35, 0.4);
-        }
-
-        /* Seções */
         section {
-            padding: 100px 0;
+            padding: 80px 20px;
         }
-
-        .section-title {
+        h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
             text-align: center;
-            font-size: 2.4rem;
-            margin-bottom: 3rem;
-            color: var(--verde-escuro);
         }
-
-        /* Footer */
         footer {
-            background: var(--verde-escuro);
+            background-color: #000;
             color: white;
             text-align: center;
-            padding: 3rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .nav-links {
-                gap: 1.5rem;
-                font-size: 0.95rem;
-            }
+            padding: 40px 20px;
         }
     </style>
 </head>
@@ -169,7 +75,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">AGRINHO <span>2026</span></div>
+                <div class="logo">AGRINHO 2026</div>
                 <div class="nav-links">
                     <a href="#sobre">Sobre</a>
                     <a href="#temas">Temas</a>
@@ -182,26 +88,68 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h1>Agro Forte,<br>Futuro Sustentável</h1>
-                <p>Equilíbrio entre alta produtividade e preservação do meio ambiente</p>
-                <a href="#inscricao" class="btn">Quero Participar do AGRINHO 2026</a>
-            </div>
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>Equilíbrio entre produção agrícola e preservação do meio ambiente</p>
+            <a href="#inscricao" style="background-color: #000; color: white; padding: 15px 35px; text-decoration: none; font-size: 18px; border: 2px solid white;">
+                Participar do AGRINHO 2026
+            </a>
         </div>
     </section>
 
-    <!-- Espaço para conteúdo futuro -->
-    <main>
-        <!-- Aqui você pode adicionar as demais seções -->
-    </main>
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre o AGRINHO 2026</h2>
+            <p>O AGRINHO é um projeto que incentiva estudantes a desenvolverem trabalhos científicos relacionados ao agronegócio sustentável. Em 2026, o tema central é <strong>“Agro Forte, Futuro Sustentável: equilíbrio entre produção e meio ambiente”</strong>.</p>
+            <p>Nosso objetivo é mostrar que é possível produzir alimentos, fibras e energia de forma eficiente, ao mesmo tempo em que se preserva o solo, a água, a biodiversidade e os recursos naturais para as futuras gerações.</p>
+        </div>
+    </section>
+
+    <!-- TEMAS -->
+    <section id="temas" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Temas Principais</h2>
+            <ul style="font-size: 18px; line-height: 2;">
+                <li>✔ Agricultura de precisão e tecnologias sustentáveis</li>
+                <li>✔ Conservação do solo e práticas regenerativas</li>
+                <li>✔ Uso consciente da água na agricultura</li>
+                <li>✔ Energias renováveis no campo</li>
+                <li>✔ Redução de desperdícios e economia circular</li>
+                <li>✔ Preservação da biodiversidade em áreas agrícolas</li>
+                <li>✔ Impacto das mudanças climáticas na produção rural</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- OBJETIVOS -->
+    <section id="objetivos">
+        <div class="container">
+            <h2>Objetivos do Projeto</h2>
+            <p>Promover o desenvolvimento de soluções inovadoras que conciliem alta produtividade com responsabilidade ambiental.</p>
+            <p>Incentivar o pensamento crítico dos estudantes sobre os desafios atuais do agronegócio brasileiro.</p>
+            <p>Estimular o uso de ciência e tecnologia a favor de um agro mais sustentável e competitivo.</p>
+        </div>
+    </section>
+
+    <!-- INSCRIÇÃO -->
+    <section id="inscricao" style="background-color: #111; color: white; text-align: center;">
+        <div class="container">
+            <h2>Inscreva seu Projeto</h2>
+            <p style="font-size: 20px;">As inscrições para o AGRINHO 2026 estão abertas!</p>
+            <p>Envie seu trabalho científico ou projeto tecnológico até o dia 30 de novembro de 2025.</p>
+            <a href="#" style="background-color: white; color: #000; padding: 15px 40px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold;">
+                Realizar Inscrição
+            </a>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
             <p><strong>AGRINHO 2026</strong> — Feira de Ciências e Tecnologia no Agronegócio Sustentável</p>
-            <p>&copy; 2026 Todos os direitos reservados.</p>
+            <p>&copy; 2026 - Todos os direitos reservados.</p>
         </div>
     </footer>
 
