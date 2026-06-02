@@ -1,22 +1,25 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
     --verde-escuro: #0a2f24;
     --verde: #1e5c45;
-    --verde-claro: #4a9b7c;
     --dourado: #e8b923;
     --bege: #f5f0e6;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background: var(--bege);
-    color: #222;
-    line-height: 1.7;
+    scroll-behavior: smooth; /* Rolagem suave */
+}
+
+/* HEADER */
+header {
+    background: rgba(10, 47, 36, 0.97);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 22px 0;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
 }
 
 .container {
@@ -25,51 +28,28 @@ body {
     padding: 0 25px;
 }
 
-/* HEADER */
-header {
-    background: rgba(10, 47, 36, 0.97);
-    backdrop-filter: blur(12px);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    padding: 22px 0;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 42px;
     color: white;
 }
 
-.logo span {
-    color: var(--dourado);
-}
+.logo span { color: var(--dourado); }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     margin-left: 35px;
     font-weight: 500;
-    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--dourado);
-}
+.nav-links a:hover { color: var(--dourado); }
 
-/* HERO */
+/* HERO - Nova imagem */
 .hero {
     height: 100vh;
-    min-height: 700px;
-    background: linear-gradient(rgba(10, 47, 36, 0.75), rgba(10, 47, 36, 0.85)),
-                url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=2000') center/cover no-repeat;
+    background: linear-gradient(rgba(10, 47, 36, 0.75), rgba(10, 47, 36, 0.8)),
+                url('https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=2000') center/cover no-repeat;
     display: flex;
     align-items: center;
     text-align: center;
@@ -77,17 +57,11 @@ nav {
     position: relative;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, transparent, rgba(10,47,36,0.4));
-}
-
 .hero-content {
-    position: relative;
-    z-index: 2;
     max-width: 900px;
     margin: 0 auto;
+    z-index: 2;
+    position: relative;
 }
 
 .hero h1 {
@@ -95,17 +69,14 @@ nav {
     font-size: 4.8rem;
     line-height: 1.05;
     margin-bottom: 20px;
-    text-shadow: 0 5px 30px rgba(0,0,0,0.6);
 }
 
 .subtitle {
     font-size: 1.55rem;
     margin-bottom: 40px;
-    opacity: 0.95;
 }
 
 .btn-principal {
-    display: inline-block;
     padding: 18px 55px;
     background: var(--dourado);
     color: #0a2f24;
@@ -113,16 +84,14 @@ nav {
     font-weight: 700;
     text-decoration: none;
     border-radius: 60px;
-    transition: all 0.4s ease;
-    box-shadow: 0 10px 30px rgba(232, 185, 35, 0.35);
+    transition: 0.4s;
 }
 
 .btn-principal:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(232, 185, 35, 0.5);
 }
 
-/* SEÇÕES */
+/* Seções */
 .section {
     padding: 110px 0;
 }
@@ -132,19 +101,7 @@ nav {
     color: white;
 }
 
-h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
-    text-align: center;
-    margin-bottom: 60px;
-    color: var(--verde-escuro);
-}
-
-.dark h2 {
-    color: white;
-}
-
-/* Grid Temas */
+/* Temas */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -152,19 +109,14 @@ h2 {
 }
 
 .card {
-    background: white;
+    background: rgba(255,255,255,0.1);
     padding: 35px 25px;
     border-radius: 16px;
     text-align: center;
     font-size: 1.25rem;
     font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: 0.4s;
-}
-
-.card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* CTA */
@@ -179,15 +131,7 @@ h2 {
     margin: 30px 0 50px;
 }
 
-/* Footer */
-footer {
-    background: #0a2f24;
-    color: #aaa;
-    text-align: center;
-    padding: 70px 20px 40px;
-}
-
+/* Responsivo */
 @media (max-width: 768px) {
     .hero h1 { font-size: 3.2rem; }
-    h2 { font-size: 2.4rem; }
 }
