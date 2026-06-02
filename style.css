@@ -1,0 +1,164 @@
+/* =============================================
+   AGRINHO 2026 - Estilo Exclusivo
+   Tema: Agro Forte, Futuro Sustentável
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Zapfino", cursive;
+    background-color: #f8f5f0;
+    color: #2c2c2c;
+    line-height: 1.9;
+    font-size: 18.5px;
+    overflow-x: hidden;
+}
+
+/* Tipografia principal */
+h1 {
+    font-size: 58px;
+    font-weight: normal;
+    letter-spacing: -2px;
+    color: #0f3d2a;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    color: #1e6b4e;
+    margin: 70px 0 35px 0;
+    position: relative;
+    display: inline-block;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    width: 65px;
+    height: 2px;
+    background: #e8b923;
+    bottom: -8px;
+    left: 0;
+}
+
+/* Parágrafos e listas */
+p {
+    margin-bottom: 28px;
+    max-width: 780px;
+}
+
+ul {
+    margin: 35px 0 50px 40px;
+}
+
+li {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+li:before {
+    content: "↟";
+    position: absolute;
+    left: -28px;
+    color: #4caf8a;
+    font-size: 22px;
+}
+
+/* Container */
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* Header */
+header {
+    background: rgba(15, 61, 42, 0.96);
+    padding: 35px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 42px;
+    color: #e8d5a3;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(rgba(15, 61, 42, 0.75), rgba(15, 61, 42, 0.8)),
+                url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=2000') center/cover;
+    color: white;
+    text-align: center;
+    padding: 160px 20px 120px;
+    margin-bottom: 80px;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 62px;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+    font-size: 23px;
+    max-width: 720px;
+    margin: 0 auto 35px;
+    opacity: 0.95;
+}
+
+/* Seções */
+section {
+    padding: 20px 0;
+}
+
+/* Destaque suave */
+section:nth-child(even) {
+    background-color: #f0eade;
+}
+
+/* Botão de inscrição */
+.btn-inscrever {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 18px 52px;
+    background: #e8b923;
+    color: #0f3d2a;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(232, 185, 35, 0.3);
+    transition: all 0.4s ease;
+}
+
+.btn-inscrever:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 28px rgba(232, 185, 35, 0.4);
+}
+
+/* Footer */
+footer {
+    background: #0f3d2a;
+    color: #d4c9a8;
+    text-align: center;
+    padding: 60px 20px 40px;
+    margin-top: 100px;
+    font-size: 17px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    h1 { font-size: 42px; }
+    h2 { font-size: 29px; }
+    body { font-size: 17px; }
+    .hero { padding: 120px 20px 90px; }
+}
