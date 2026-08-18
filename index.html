@@ -3,91 +3,721 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGRINHO 2026 | Agro Forte, Futuro Sustentável</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Agropecuária no Brasil - Agrinho 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Navegação */
+        nav {
+            background: linear-gradient(135deg, #2d5016 0%, #3a7d23 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Seções */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d5016;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #4CAF50;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Sobre Agropecuária */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            color: #2d5016;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #2d5016, #3a7d23);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Flash Cards */
+        .flashcards {
+            background: #f9f9f9;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .flashcard {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+            height: 300px;
+            position: relative;
+        }
+
+        .flashcard:hover {
+            transform: translateY(-10px);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .flashcard-front {
+            background: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, #2d5016, #3a7d23);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .flashcard h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .flashcard-back h3 {
+            color: white;
+        }
+
+        /* Agrinho Section */
+        .agrinho {
+            background: white;
+        }
+
+        .agrinho-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .agrinho-info {
+            background: linear-gradient(135deg, #f5f5f5, #e8f5e9);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .agrinho-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .agrinho-info ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .agrinho-info ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .agrinho-info ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d5016;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #2d5016, #3a7d23);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .agrinho-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">AGRINHO <span>2026</span></div>
-                <div class="nav-links">
-                    <a href="#sobre">Sobre</a>
-                    <a href="#temas">Temas</a>
-                    <a href="#objetivos">Objetivos</a>
-                    <a href="#inscricao">Inscreva-se</a>
+    <!-- Navegação -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                🌾 AgroBrasil
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Importância</a></li>
+                <li><a href="#dados">Dados</a></li>
+                <li><a href="#agrinho">Agrinho 2026</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content fade-in">
+            <h1>Agropecuária no Brasil</h1>
+            <p>O setor que move a economia brasileira</p>
+            <a href="#agrinho" class="btn">Participe do Agrinho 2026</a>
+        </div>
+    </section>
+
+    <!-- Sobre Agropecuária -->
+    <section class="about" id="sobre">
+        <h2 class="section-title">A Importância da Agropecuária</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>O agronegócio brasileiro é um dos pilares fundamentais da economia nacional. Com vastas áreas cultiváveis, tecnologia de ponta e mão de obra qualificada, o Brasil se consolidou como um dos maiores produtores e exportadores de commodities agrícolas do mundo.</p>
+                
+                <h3>Principais Produtos</h3>
+                <p>O Brasil lidera a produção mundial de soja, café, açúcar e etanol, além de ser um dos maiores produtores de carne bovina, frango, milho, algodão e suco de laranja. O setor é responsável por aproximadamente <strong>25% do PIB nacional</strong> e gera milhões de empregos diretos e indiretos.</p>
+                
+                <h3>Sustentabilidade</h3>
+                <p>O agronegócio brasileiro tem investido pesadamente em tecnologias sustentáveis, como o plantio direto, integração lavoura-pecuária-floresta (ILPF) e uso eficiente de recursos hídricos, posicionando o país como referência em agricultura de baixo carbono.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800" alt="Plantação de soja no Brasil">
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">25%</div>
+                <div>do PIB Brasileiro</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">US$ 159 bi</div>
+                <div>em Exportações (2024)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">200M</div>
+                <div>de hectares cultivados</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Cards -->
+    <section class="flashcards" id="dados">
+        <h2 class="section-title">Conheça Mais Sobre o Setor</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666;">Clique nos cards para revelar informações</p>
+        
+        <div class="cards-container">
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon">🌱</div>
+                        <h3>Soja</h3>
+                        <p>Clique para saber mais</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <h3>Soja Brasileira</h3>
+                        <p>O Brasil é o maior produtor mundial de soja, com produção superior a 150 milhões de toneladas/ano. O grão é essencial para ração animal, óleo comestível e biodiesel.</p>
+                    </div>
                 </div>
-            </nav>
-        </div>
-    </header>
+            </div>
 
-    <!-- HERO - Nova Imagem de Fundo -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>AGRO FORTE,<br>FUTURO SUSTENTÁVEL</h1>
-            <p class="subtitle">Equilíbrio entre produção de excelência e preservação do planeta</p>
-            <a href="#inscricao" class="btn-principal">PARTICIPAR DO AGRINHO 2026</a>
-        </div>
-    </section>
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon">🐄</div>
+                        <h3>Pecuária</h3>
+                        <p>Clique para saber mais</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <h3>Rebanho Bovino</h3>
+                        <p>O Brasil possui o maior rebanho bovino comercial do mundo, com mais de 230 milhões de cabeças. É o maior exportador de carne bovina global.</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="section">
-        <div class="container">
-            <h2>Sobre o AGRINHO 2026</h2>
-            <p>O AGRINHO é muito mais que uma feira de ciências. É o movimento de uma nova geração que entende que o futuro do agronegócio brasileiro deve ser forte, tecnológico e em total harmonia com o meio ambiente.</p>
-            <p>Em 2026, unimos ciência, inovação e consciência ambiental para construir o agro que o Brasil e o mundo precisam.</p>
-        </div>
-    </section>
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon">☕</div>
+                        <h3>Café</h3>
+                        <p>Clique para saber mais</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <h3>Café Brasileiro</h3>
+                        <p>Líder mundial na produção e exportação de café, o Brasil responde por cerca de 40% da produção global, com destaque para Minas Gerais e Espírito Santo.</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- TEMAS -->
-    <section id="temas" class="section dark">
-        <div class="container">
-            <h2>Temas que Movem o Futuro</h2>
-            <div class="grid">
-                <div class="card">Agricultura de Precisão</div>
-                <div class="card">Sistemas Regenerativos</div>
-                <div class="card">Gestão Inteligente da Água</div>
-                <div class="card">Energia Renovável no Campo</div>
-                <div class="card">Biodiversidade e Produção</div>
-                <div class="card">Economia Circular Agrícola</div>
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon"></div>
+                        <h3>Milho</h3>
+                        <p>Clique para saber mais</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <h3>Milho</h3>
+                        <p>Terceiro maior produtor mundial, o Brasil produz mais de 120 milhões de toneladas/ano, essencial para ração animal e indústria de alimentos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon">🌳</div>
+                        <h3>Sustentabilidade</h3>
+                        <p>Clique para saber mais</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <h3>Agricultura Sustentável</h3>
+                        <p>O Brasil possui 80% da matriz energética renovável no agronegócio. Programas como ABC+ promovem práticas de baixo carbono e conservação ambiental.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon"></div>
+                        <h3>Exportações</h3>
+                        <p>Clique para saber mais</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <h3>Balança Comercial</h3>
+                        <p>O agronegócio é responsável por mais de 40% das exportações brasileiras, gerando superávit comercial e divisas essenciais para a economia.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- OBJETIVOS -->
-    <section id="objetivos" class="section">
-        <div class="container">
-            <h2>Objetivos</h2>
-            <div class="objetivos-grid">
-                <div class="item">Inovar com responsabilidade ambiental</div>
-                <div class="item">Despertar consciência nos jovens</div>
-                <div class="item">Conectar ciência e campo</div>
-                <div class="item">Construir um legado sustentável</div>
+    <!-- Agrinho 2026 -->
+    <section class="agrinho" id="agrinho">
+        <h2 class="section-title">Projeto Agrinho 2026</h2>
+        
+        <div class="agrinho-container">
+            <div class="agrinho-info">
+                <h3>O que é o Agrinho?</h3>
+                <p>O Agrinho é um programa socioeducacional que visa contribuir com a formação de cidadãos mais conscientes e responsáveis, promovendo a sustentabilidade e o desenvolvimento rural.</p>
+                
+                <h3>Objetivos do Programa:</h3>
+                <ul>
+                    <li>Promover educação ambiental e sustentabilidade</li>
+                    <li>Valorizar a agricultura familiar</li>
+                    <li>Incentivar o empreendedorismo rural</li>
+                    <li>Desenvolver consciência sobre segurança alimentar</li>
+                    <li>Fortalecer o vínculo campo-cidade</li>
+                </ul>
+
+                <h3>Benefícios da Participação:</h3>
+                <ul>
+                    <li>Materiais didáticos exclusivos</li>
+                    <li>Capacitação para educadores</li>
+                    <li>Visitas técnicas a propriedades rurais</li>
+                    <li>Certificação de participação</li>
+                    <li>Concursos e premiações</li>
+                </ul>
+
+                <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <strong>📅 Inscrições abertas até 31 de março de 2026</strong>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h3 style="color: #2d5016; margin-bottom: 1.5rem; text-align: center;">Faça sua Inscrição</h3>
+                <form id="agrinhoForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone *</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria">Categoria de Inscrição *</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="">Selecione...</option>
+                            <option value="estudante">Estudante</option>
+                            <option value="professor">Professor/Educador</option>
+                            <option value="produtor">Produtor Rural</option>
+                            <option value="comunidade">Comunidade em Geral</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">Cidade/UF *</label>
+                        <input type="text" id="cidade" name="cidade" required placeholder="Cidade - UF">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem (Opcional)</label>
+                        <textarea id="mensagem" name="mensagem" rows="3" placeholder="Conte-nos por que deseja participar..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" required style="width: auto;">
+                            <span style="font-weight: normal; font-size: 0.9rem;">Concordo em receber informações sobre o Agrinho 2026</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Inscrição</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- INSCRIÇÃO -->
-    <section id="inscricao" class="section cta">
-        <div class="container">
-            <h2>Inscreva seu Projeto</h2>
-            <p class="big">As inscrições estão abertas até 30 de novembro de 2025.</p>
-            <a href="#" class="btn-principal">REALIZAR INSCRIÇÃO AGORA</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p><strong>AGRINHO 2026</strong> — Feira de Ciências e Tecnologia no Agronegócio Sustentável</p>
-            <p>© 2026 Todos os direitos reservados.</p>
-        </div>
+    <!-- Footer -->
+    <footer id="contato">
+        <p>&copy; 2026 AgroBrasil - Projeto Agrinho. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            📧 contato@agrinho2026.com.br | 📞 (00) 0000-0000
+        </p>
     </footer>
 
+    <script>
+        // Função para flipar cards
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // Smooth scroll para links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Validação e submit do formulário
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simulação de envio
+            alert(`Inscrição realizada com sucesso!\n\nNome: ${data.nome}\nE-mail: ${data.email}\nCategoria: ${data.categoria}\n\nEm breve entraremos em contato com mais informações sobre o Agrinho 2026.`);
+            
+            e.target.reset();
+        }
+
+        // Animação ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos
+        document.querySelectorAll('.stat-card, .flashcard, .agrinho-info, .form-container').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Máscara para telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+                e.target.value = value;
+            }
+        });
+    </script>
 </body>
 </html>
